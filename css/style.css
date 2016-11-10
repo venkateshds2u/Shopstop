@@ -1,0 +1,17 @@
+.icon{
+	max-width: 50%;
+	max-height: 50%;
+}
+
+.topnav{
+	border-radius: 0px;
+}
+
+.carousel-images{
+	max-height: 700px;
+}
+
+.card-Image{
+	max-height: 100px;
+	max-width: 100px;
+}

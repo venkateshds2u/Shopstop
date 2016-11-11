@@ -20,7 +20,7 @@
 		  	</a>		  	
 		    <a class="nav-item nav-link active ml-2" href="index.html">Home <span class="sr-only">(current)</span></a>
 		    <a class="nav-item nav-link" href="#">All Products</a>
-		    <a class="nav-item nav-link" href="#">Top Rated</a>
+		    <a class="nav-item nav-link" href="#top">Top Rated</a>
 		    <a class="nav-item nav-link" href="#">About</a>
 		    <a class="nav-item nav-link float-lg-right" href="#" data-toggle="modal" data-target="#loginModal">Login</a>
 		    <a class="nav-item nav-link float-lg-right" href="#" data-toggle="modal" data-target="#signupModal">Sign Up</a>
@@ -41,7 +41,7 @@
 	        <h4 class="modal-title text-xs-center" id="myModalLabel">Login</h4>
 	      </div>
 	      <div class="modal-body">
-	        <form>
+	        <form action="">
 			  	<div class="form-group row">
 				  <label for="example-text-input" class="col-xs-2 col-form-label">Username</label>
 				  <div class="col-xs-10">
@@ -89,53 +89,68 @@
 	        </button>
 	        <h4 class="modal-title text-xs-center" id="myModalLabel">Sign Up</h4>
 	      </div>
-	      <div class="modal-body">
-	        <form>
+
+	      <form action="index.php" method="POST">
+	      	<div class="modal-body">
+	      		<div class="form-group row">
+				  <label for="example-text-input" class="col-xs-4 col-form-label">First Name</label>
+				  <div class="col-xs-8">
+				    <input class="form-control" type="text" id="example-text-input" name="firstname">
+				  </div>
+				</div>
+				<div class="form-group row">
+				  <label for="example-text-input" class="col-xs-4 col-form-label">Last Name</label>
+				  <div class="col-xs-8">
+				    <input class="form-control" type="text" id="example-text-input" name="lastname">
+				  </div>
+				</div>
 			  	<div class="form-group row">
-				  <label for="example-text-input" class="col-xs-2 col-form-label">Email</label>
-				  <div class="col-xs-10">
-				    <input class="form-control" type="email" id="example-text-input">
+				  <label for="example-text-input" class="col-xs-4 col-form-label">Email</label>
+				  <div class="col-xs-8">
+				    <input class="form-control" type="email" id="example-text-input" name="email">
 				  </div>
 				</div>
 				<div class="form-group row">
-				  <label for="example-text-input" class="col-xs-2 col-form-label">Username</label>
-				  <div class="col-xs-10">
-				    <input class="form-control" type="text" id="example-text-input">
+				  <label for="example-text-input" class="col-xs-4 col-form-label">Username</label>
+				  <div class="col-xs-8">
+				    <input class="form-control" type="text" id="example-text-input" name="username">
 				  </div>
 				</div>
 				<div class="form-group row">
-				  <label for="example-text-input" class="col-xs-2 col-form-label">Password</label>
-				  <div class="col-xs-10">
-				    <input class="form-control" type="password" id="example-text-input">
+				  <label for="example-text-input" class="col-xs-4 col-form-label">Password</label>
+				  <div class="col-xs-8">
+				    <input class="form-control" type="password" id="example-text-input" name="password">
 				  </div>
 				</div>
 				<div class="form-group row">
-				  <label for="example-search-input" class="col-xs-2 col-form-label">Retype Password</label>
-				  <div class="col-xs-10">
+				  <label for="example-search-input" class="col-xs-4 col-form-label">Retype Password</label>
+				  <div class="col-xs-8">
 				    <input class="form-control" type="password" id="example-search-input">
 				  </div>
 				</div>
 				<div class="row text-white mb-2">
-				  <div class="offset-md-2 col-xs-5">
+				  <div class="offset-md-4 col-xs-4">
 				    <a class="btn btn-block btn-social btn-facebook">
-					    <span class="fa fa-facebook"></span> Sign in with Facebook
+					    <span class="fa fa-facebook"></span> Facebook
 					</a>
 				  </div>
-				  <div class="col-xs-5">
+				  <div class="col-xs-4">
 				    <a class="btn btn-block btn-social btn-google">
-					   <span class="fa fa-google"></span> Sign in with Google
+					   <span class="fa fa-google"></span> Google
 					</a>
 				  </div>
-				</div>
-			</form>
-	      </div>
-	      <div class="modal-footer">
-	        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-	        <button type="button" class="btn btn-primary bg-inverse text-white">Sign Up</button>
-	      </div>
+				</div>			
+	      	</div>
+		    <div class="modal-footer">
+		       <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+		       <button type="submit" class="btn btn-primary bg-inverse text-white" name="signup">Sign Up</button>
+		    </div>
+	      </form>
 	    </div>
 	  </div>
 	</div>
+
+	<?php include 'signup_router.php';?>
 
 	<!-- Signup modal Ends Here -->
 
@@ -185,20 +200,86 @@
 	<!-- End of Carousel -->
 
 	<!-- Top Rated products -->
-	<div class="container mt-2">
+	<div class="container mt-2" id="top">
 		<div class="container display-4 text-xs-center mb-2"> Our Top Rated Products</div>
-		<div class="row col-md-4">
-			<div class="card">
+		<div class="row top-rated-row mb-2">
+			<div class="card col-md-5 px-0">
 			  <div class="card-block">
-			    <h4 class="card-title">Computer Enginering Course</h4>
-			    <h6 class="card-subtitle text-muted">$500</h6>
+			    <h5 class="card-title top-rated-title text-xs-center">Computer Engineering Course</h5>
+			    <h6 class="card-subtitle text-muted text-xs-center">San Jose Downtown University</h6>
 			  </div>
+			  <img src="http://3.bp.blogspot.com/-UVx24A5E8iI/Vo_jHnZZjMI/AAAAAAAAAGs/aLTAIL5PAq4/s640/Computer%2BProgramming%2BCourses%2BCan%2BBe%2BYour%2BTicket%2BTo%2BThe%2BGood%2BLife.jpg" alt="Card image" class="img-fluid" >
+			  <div class="card-block row container-fluid">			    
+			  	<h6 class="card-subtitle text-muted text-xs-center mb-1 mt-1">$600</h6>			    
+	        	<button type="button" class="btn bg-inverse text-white offset-xs-1 col-xs-10">Buy</button>
+			  </div>
+			</div>
+
+			<div class="card offset-sm-2 col-md-5 px-0">
 			  <div class="card-block">
-			    <a href="#" class="card-link">Card link</a>
-			    <a href="#" class="card-link">Another link</a>
+			    <h5 class="card-title top-rated-title text-xs-center">Watch</h4>
+			    <h6 class="card-subtitle text-muted text-xs-center">Mom Consulting</h6>
+			  </div>
+			  <img src="http://economydecoded.com/wp-content/uploads/2016/10/nike-watch-640x360.jpg" alt="Card image" class="img-fluid" >
+			  <div class="card-block row container-fluid">			    
+			  	<h6 class="card-subtitle text-muted text-xs-center mb-1 mt-1">$370</h6>			    
+	        	<button type="button" class="btn bg-inverse text-white offset-xs-1 col-xs-10">Buy</button>
 			  </div>
 			</div>
 		</div>
+
+		<div class="row top-rated-row mb-2">
+			<div class="card col-md-5 px-0">
+			  <div class="card-block">
+			    <h5 class="card-title top-rated-title text-xs-center">3 BHK flat - San Jose</h5>
+			    <h6 class="card-subtitle text-muted text-xs-center">Isaacagam</h6>
+			  </div>
+			  <img src="https://www.photomast.com/wp-content/uploads/2016/03/Realestate3-640x360.jpg" alt="Card image" class="img-fluid" >
+			  <div class="card-block row container-fluid">			    
+			  	<h6 class="card-subtitle text-muted text-xs-center mb-1 mt-1">$800,000</h6>
+	        	<button type="button" class="btn bg-inverse text-white offset-xs-1 col-xs-10">Buy</button>
+			  </div>
+			</div>
+
+			<div class="card offset-sm-2 col-md-5 px-0">
+			  <div class="card-block">
+			    <h5 class="card-title top-rated-title text-xs-center">Head Lamp</h4>
+			    <h6 class="card-subtitle text-muted text-xs-center">Mom Consulting</h6>
+			  </div>
+			  <img src="https://www.copquest.com/product-images/fenix-hl55-led-headlamp-900-lumens_18-8255_a.jpg" alt="Card image" class="img-fluid" >
+			  <div class="card-block row container-fluid">			    
+			  	<h6 class="card-subtitle text-muted text-xs-center mb-1 mt-1">$89</h6>			    
+	        	<button type="button" class="btn bg-inverse text-white offset-xs-1 col-xs-10">Buy</button>
+			  </div>
+			</div>
+		</div>
+
+		<div class="row top-rated-row mb-2">
+			<div class="card col-md-5 px-0">
+			  <div class="card-block">
+			    <h5 class="card-title top-rated-title text-xs-center">Automobile Engineering</h5>
+			    <h6 class="card-subtitle text-muted text-xs-center">San Jose Downtown University</h6>
+			  </div>
+			  <img src="https://cdn.materia.nl/wp-content/uploads/2016/04/toyota-s-wood-car-captures-the-beauty-of-materials-over-time-05-640x360.jpg" alt="Card image" class="img-fluid" >
+			  <div class="card-block row container-fluid">			    
+			  	<h6 class="card-subtitle text-muted text-xs-center mb-1 mt-1">$1100</h6>
+	        	<button type="button" class="btn bg-inverse text-white offset-xs-1 col-xs-10">Buy</button>
+			  </div>
+			</div>
+
+			<div class="card offset-sm-2 col-md-5 px-0">
+			  <div class="card-block">
+			    <h5 class="card-title top-rated-title text-xs-center">4 BHK - Sunnyvale</h4>
+			    <h6 class="card-subtitle text-muted text-xs-center">Isaacagam</h6>
+			  </div>
+			  <img src="http://biggolftutorials.com/wp-content/uploads/2016/07/maxresdefault32-640x360.jpg" alt="Card image" class="img-fluid" >
+			  <div class="card-block row container-fluid">			    
+			  	<h6 class="card-subtitle text-muted text-xs-center mb-1 mt-1">$950,000</h6>			    
+	        	<button type="button" class="btn bg-inverse text-white offset-xs-1 col-xs-10">Buy</button>
+			  </div>
+			</div>
+		</div>
+
 	</div>
 	<!-- Top Rated Section ends here -->
 

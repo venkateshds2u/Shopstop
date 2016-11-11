@@ -15,3 +15,12 @@
 	max-height: 100px;
 	max-width: 100px;
 }
+
+.top-rated-title{
+	min-height: 40px;
+}
+
+.top-rated-row{
+	padding-right: 6em;
+	padding-left: 6em;
+}

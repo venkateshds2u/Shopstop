@@ -15,11 +15,11 @@
 
 		<nav class="navbar navbar-dark bg-inverse topnav">
 		  <div class="nav navbar-nav container">
-		  	<a class="navbar-brand" href="index.html">
+		  	<a class="navbar-brand" href="index.php">
 		  		Shop Stop
 		  	</a>		  	
-		    <a class="nav-item nav-link active ml-2" href="index.html">Home <span class="sr-only">(current)</span></a>
-		    <a class="nav-item nav-link" href="#">All Products</a>
+		    <a class="nav-item nav-link active ml-2" href="index.php">Home <span class="sr-only">(current)</span></a>
+		    <a class="nav-item nav-link" href="all_products.php">All Products</a>
 		    <a class="nav-item nav-link" href="#top">Top Rated</a>
 		    <a class="nav-item nav-link" href="#">About</a>
 		    <a class="nav-item nav-link float-lg-right" href="#" data-toggle="modal" data-target="#loginModal">Login</a>

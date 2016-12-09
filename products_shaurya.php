@@ -17,7 +17,6 @@
 	    // output data of each row	
 	    while($row = $result->fetch_assoc()) {
 	      	$product_id = $row["product_id"];
-	      	echo $product_id;   
 			$productname = $row["product_name"];
 			$price = $row["price"];
 			$imageurl = $row["image"];

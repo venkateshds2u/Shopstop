@@ -54,7 +54,7 @@
                         <?php include 'reviews.php'; ?> 
                     </h6>			    
 
-			        <button type="button" class="btn bg-inverse text-white offset-xs-1 col-xs-10">Buy</button>
+			        <button type="button" class="btn bg-inverse text-white offset-xs-1 col-xs-10" onclick="window.location.href='product.php?id=<?php echo $product_id?>'">Buy</button>
 
 		        </div>
 

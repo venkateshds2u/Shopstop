@@ -9,8 +9,48 @@
 	<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
 	<link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-social/5.0.0/bootstrap-social.min.css" rel="stylesheet">
 	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+
+	
+
 </head>
+<?php
+
+	if(isset($_POST['submit'])) {
+
+
+		include 'connection_shaurya.php';
+
+		$conn = shauryaConnection();
+		
+		// Check connection
+		if ($conn->connect_error) {
+			echo("error");
+		    die("Connection failed: " . $conn->connect_error);
+		}				
+			
+		$email = $_POST['email'];
+		$password = $_POST['password'];
+
+		$sql = "SELECT * FROM market_users WHERE email = '$email' AND password = '$password'";
+		$result = $conn->query($sql);
+		
+		if ($result->num_rows > 0) {
+		    // output data of each row	
+
+		}
+		else{
+			echo '<script>
+					$(document).ready(function(){
+						$("#failureModal").modal("show");
+					});
+				</script>';
+		}
+      
+   	}
+?>
 <body>
+
 	<header>
 
 		<nav class="navbar navbar-dark bg-inverse topnav">
@@ -42,39 +82,38 @@
 	        </button>
 	        <h4 class="modal-title text-xs-center" id="myModalLabel">Login</h4>
 	      </div>
-	      <div class="modal-body">
-	        <form action="">
-			  	<div class="form-group row">
-				  <label for="example-text-input" class="col-xs-2 col-form-label">Username</label>
-				  <div class="col-xs-10">
-				    <input class="form-control" type="text" id="example-text-input">
-				  </div>
-				</div>
-				<div class="form-group row">
-				  <label for="example-search-input" class="col-xs-2 col-form-label">Password</label>
-				  <div class="col-xs-10">
-				    <input class="form-control" type="password" id="example-search-input">
-				  </div>
-				</div>
-				<div class="row text-white">
-				  <div class="offset-md-2 col-xs-5">
-				    <a class="btn btn-block btn-social btn-facebook">
-					    <span class="fa fa-facebook"></span> Sign in with Facebook
-					</a>
-				  </div>
-				  <div class="col-xs-5">
-				    <a class="btn btn-block btn-social btn-google">
-					   <span class="fa fa-google"></span> Sign in with Google
-					</a>
-				  </div>
-				</div>
-
-			</form>
-	      </div>
-	      <div class="modal-footer">
-	        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-	        <button type="button" class="btn btn-primary bg-inverse text-white">Login</button>
-	      </div>
+	      <form action="index.php" method="POST">
+		      	<div class="modal-body">	        
+				  	<div class="form-group row">
+					  <label for="example-text-input" class="col-xs-2 col-form-label">Username</label>
+					  <div class="col-xs-10">
+					    <input class="form-control" type="text" id="example-text-input" name="email">
+					  </div>
+					</div>
+					<div class="form-group row">
+					  <label for="example-search-input" class="col-xs-2 col-form-label">Password</label>
+					  <div class="col-xs-10">
+					    <input class="form-control" type="password" id="example-search-input" name="password">
+					  </div>
+					</div>
+					<div class="row text-white">
+					  <div class="offset-md-2 col-xs-5">
+					    <a class="btn btn-block btn-social btn-facebook">
+						    <span class="fa fa-facebook"></span> Sign in with Facebook
+						</a>
+					  </div>
+					  <div class="col-xs-5">
+					    <a class="btn btn-block btn-social btn-google">
+						   <span class="fa fa-google"></span> Sign in with Google
+						</a>
+					  </div>
+					</div>				
+		      	</div>
+		    <div class="modal-footer">
+		       	<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+		        <input type="submit" class="btn btn-primary bg-inverse text-white" name="submit"></input>
+		    </div>
+		  </form>      
 	    </div>
 	  </div>
 	</div>
@@ -153,8 +192,28 @@
 	</div>
 
 	<?php include 'signup_router.php';?>
-
 	<!-- Signup modal Ends Here -->
+
+	<!-- Signup Failure Starts here -->
+
+	<div class="modal fade" id="failureModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+	  <div class="modal-dialog" role="document">
+	    <div class="modal-content">
+	      <div class="modal-header">
+	        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+	        <h4 class="modal-title" id="myModalLabel">Login Failed</h4>
+	      </div>
+	      <div class="modal-body">
+	        Incorrect E-Mail or Password!
+	      </div>
+	      <div class="modal-footer">
+	        <button type="button" class="btn btn-primary bg-inverse text-white" data-dismiss="modal">Close</button>
+	      </div>
+	    </div>
+	  </div>
+	</div>
+
+	<!-- Signup failure modal Ends Here -->
 
 	<!-- Carousel Starts here -->
 
@@ -285,7 +344,6 @@
 	</div>
 	<!-- Top Rated Section ends here -->
 
-	<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.5/js/bootstrap.min.js"></script>	
 </body>
 </html>

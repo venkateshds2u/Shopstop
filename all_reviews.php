@@ -54,9 +54,9 @@ function processRating(val, attrVal){
 		  	<a class="navbar-brand" href="index.php">
 		  		Shop Stop
 		  	</a>		  	
-		    <a class="nav-item nav-link active ml-2" href="index.php">Home <span class="sr-only">(current)</span></a>
+		    <a class="nav-item nav-link ml-2" href="index.php">Home <span class="sr-only">(current)</span></a>
 		    <a class="nav-item nav-link" href="all_products.php">All Products</a>
-<!--MP-->   <a class="nav-item nav-link" href="all_reviews.php">Best Reviewed Products</a>   
+<!--MP-->   <a class="nav-item nav-link active" href="all_reviews.php">Best Reviewed Products</a>   
 <!--MP-->   <a class="nav-item nav-link" href="all_visits.php">Most Visited Products</a>   
 		    <a class="nav-item nav-link" href="#">About</a>
 		    <a class="nav-item nav-link float-lg-right" href="#" data-toggle="modal" data-target="#loginModal">Login</a>

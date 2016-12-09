@@ -13,7 +13,7 @@
 	}				
 	
 //	$sql = "select p.product_name, p.image, p.price, v.visit_count from products p, visits v where p.product_id = v.product_id order by visit_count desc limit 5";
-	$sql = "select  p.product_url, p.product_name, p.image, p.price, FORMAT((v.total_points / v.rating_number),1) as average_rating
+	$sql = "select  p.product_id, p.product_url, p.product_name, p.image, p.price, FORMAT((v.total_points / v.rating_number),1) as average_rating
                 from products p, post_rating v where p.product_id = v.post_id 
                 order by average_rating desc limit 5";
     $result = $conn->query($sql);
@@ -34,12 +34,12 @@
 			<h5 class="card-title product-title text-xs-center" style="color:DarkBlue"><?php echo $productname?></h5>
 		</div>
         <a target="_blank" href="<?php echo $producturl?>">
-		<img src="<?php echo $imageurl?>" alt="Card image" class="img-fluid" >
+		<img src="<?php echo $imageurl?>" alt="Card image" class="img-fluid" ></a>
 		<div class="card-block row container-fluid">			    
 			<h6 class="card-subtitle text-muted text-xs-center mb-1 mt-1">$<?php echo $price?></h6>			    
    			<h6 class="card-subtitle text-muted text-xs-center mb-1 mt-1">Rating: <?php echo $average_rating?></h6>			    
 
-			<button type="button" class="btn bg-inverse text-white offset-xs-1 col-xs-10">Buy</button>
+			<button type="button" class="btn bg-inverse text-white offset-xs-1 col-xs-10" onclick="window.location.href='product.php?id=<?php echo $product_id?>'">Buy</button>
 		</div>
 	</div>
 

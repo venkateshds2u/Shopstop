@@ -20,6 +20,8 @@
 		  	</a>		  	
 		    <a class="nav-item nav-link active ml-2" href="index.php">Home <span class="sr-only">(current)</span></a>
 		    <a class="nav-item nav-link" href="all_products.php">All Products</a>
+<!--MP-->   <a class="nav-item nav-link" href="all_reviews.php">Best Reviewed Products</a>   
+<!--MP-->   <a class="nav-item nav-link" href="all_visits.php">Most Visited Products</a>   
 		    <a class="nav-item nav-link" href="#top">Top Rated</a>
 		    <a class="nav-item nav-link" href="#">About</a>
 		    <a class="nav-item nav-link float-lg-right" href="#" data-toggle="modal" data-target="#loginModal">Login</a>
@@ -180,10 +182,10 @@
 		  </div>
 	    </div>
 	    <div class="carousel-item">
-	      <img src="img/children.jpg" alt="Second slide" class="carousel-images">
+<!--MP--> <img src="img/ultra.jpg" alt="Second slide" class="carousel-images">
 	      <div class="carousel-caption mb-1">
-		    <h3>Mom Consulting</h3>
-		    <p>Let your child learn the best way</p>
+<!--MP--> 		    <h3>Ultra Running Inc.</h3>
+<!--MP--> 		    <p>Find your trail with the best gear</p>
 			<button type="button" class="btn btn-outline-secondary">Explore</button>
 		  </div>
 	    </div>

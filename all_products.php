@@ -16,9 +16,10 @@
 		  	<a class="navbar-brand" href="index.php">
 		  		Shop Stop
 		  	</a>		  	
-		    <a class="nav-item nav-link active ml-2" href="index.php">Home <span class="sr-only">(current)</span></a>
-		    <a class="nav-item nav-link" href="all_products.php">All Products</a>
-		    <a class="nav-item nav-link" href="#top">Top Rated</a>
+		    <a class="nav-item nav-link ml-2" href="index.php">Home <span class="sr-only">(current)</span></a>
+		    <a class="nav-item nav-link active" href="all_products.php">All Products</a>
+<!--MP-->   <a class="nav-item nav-link" href="all_reviews.php">Best Reviewed Products</a>   
+<!--MP-->   <a class="nav-item nav-link" href="all_visits.php">Most Visited Products</a>   
 		    <a class="nav-item nav-link" href="#">About</a>
 		    <a class="nav-item nav-link float-lg-right" href="#" data-toggle="modal" data-target="#loginModal">Login</a>
 		    <a class="nav-item nav-link float-lg-right" href="#" data-toggle="modal" data-target="#signupModal">Sign Up</a>
@@ -71,6 +72,22 @@
 		      </div>
 		    </div>
 		  </div>
+
+		  <div class="card">
+		    <div class="card-header bg-inverse" role="tab" id="headingFour">
+		      <h5 class="mb-0">
+		        <a class="collapsed text-white" data-toggle="collapse" data-parent="#accordion" href="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+		          Products by Trek The Himalayas
+		        </a>
+		      </h5>
+		    </div>
+		    <div id="collapseFour" class="collapse" role="tabpanel" aria-labelledby="headingFour">
+		      <div class="card-block">
+		      	<?php include 'products_venkatesh.php';?>
+		      </div>
+		    </div>
+		  </div>
+
 		</div>
 	</div>
 	<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>

@@ -5,11 +5,16 @@
 		$details = $_POST["details"];
         $product_id = $_POST["productid"];
         $rating = $_POST["rating".$product_id];
+       	$servername = $_POST["servername"];
+	    $username = $_POST["username"];
+	    $password = $_POST["password"];
+	    $dbname = $_POST["dbname"];
 
-		$post = 'product_id='.$product_id.'&summary='.$summary.'&details='.$details.'&rating='.$rating;
+
+		$post = 'product_id='.$product_id.'&summary='.$summary.'&details='.$details.'&rating='.$rating.'&servername='.$servername.'&username='.$username.'&password='.$password.'&dbname='.$dbname;
 
 		$ch = curl_init();
-		curl_setopt($ch, CURLOPT_URL, "http://www.momconsulting.org/review_reciever.php");
+		curl_setopt($ch, CURLOPT_URL, "http://www.momconsulting.org/shopstop/review_reciever.php");
 		curl_setopt($ch, CURLOPT_POST, true);
 		curl_setopt($ch, CURLOPT_POSTFIELDS, $post);
 		curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);

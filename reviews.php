@@ -1,5 +1,3 @@
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.5/css/bootstrap.min.css">
-<link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-social/5.0.0/bootstrap-social.min.css" rel="stylesheet">
 
 <?php
     $query = "SELECT review_id, summary, details, rating from reviews where product_id = " . $product_id;
@@ -52,7 +50,7 @@
                 </script>
 
                     <tr>
-                        <td class="card-subtitle text-muted text-xs-center mb-1 mt-1" style="width:35%; border: 1px solid black; border-collapse: collapse; padding: 15px;">
+                        <td class="card-subtitle text-muted text-xs-center mb-1 mt-1" style="width:35%; border: 1px solid black; border-collapse: collapse; padding: 15px;"><?php echo $rating?> stars
                             <input name="review<?php echo $review_id ?>" value="0" id="review_star<?php echo $review_id ?>" type="hidden" postID="<?php echo $product_id ?>"/>
                         </td>
                         <td class="card-subtitle text-muted text-xs-center mb-1 mt-1" style="width:20%; border: 1px solid black; border-collapse: collapse; padding: 15px;"><?php echo $summary?></td>
@@ -106,6 +104,11 @@
 				  </div>
 				</div>
 
+    		    <input class="form-control" type="hidden" id="example-text-input" value="<?php echo $servername?>" name="servername">
+    		    <input class="form-control" type="hidden" id="example-text-input" value="<?php echo $username?>" name="username">
+    		    <input class="form-control" type="hidden" id="example-text-input" value="<?php echo $password?>" name="password">
+    		    <input class="form-control" type="hidden" id="example-text-input" value="<?php echo $dbname?>" name="dbname">
+
     		    <input class="form-control" type="hidden" id="example-text-input" value="<?php echo $product_id?>" name="productid">
     
                 <!--Start Yaniv-->
@@ -123,9 +126,21 @@
                 </script>
 
                      <h1></h1>
-                    <input name="rating<?php echo $product_id; ?>" value="0" id="rating_star<?php echo $product_id ?>" type="hidden" postID=<?php echo $product_id; ?>/>
+<!--                    <input name="rating<?php echo $product_id; ?>" value="0" id="rating_star<?php echo $product_id ?>" type="hidden" postID=<?php echo $product_id; ?>/>
                     <div class="overall-rating">(Click on stars to set rating)</div>
-            
+-->
+			  	<div class="form-group row">
+				  <label for="example-text-input" class="col-xs-4 col-form-label">Rating</label>
+				  <div class="col-xs-8">
+                    <select name="rating<?php echo $product_id; ?>" id="rating_star<?php echo $product_id ?>"  style="width: 100%">
+                          <option value="1">1 star</option>
+                          <option value="2">2 stars</option>
+                          <option value="3">3 stars</option>
+                          <option value="4">4 stars</option>
+                          <option value="5">5 stars</option>
+                    </select>
+                    </div>
+				</div>
 	      	</div>
 		    <div class="modal-footer">
 		       <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -137,5 +152,5 @@
 	</div>
 
 	<?php include 'review_router.php';?> 
-
+    <script src="https://npmcdn.com/tether@1.2.4/dist/js/tether.min.js"></script>
         	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.5/js/bootstrap.min.js"></script>	

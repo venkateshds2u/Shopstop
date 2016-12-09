@@ -3,14 +3,13 @@
 		$details = $_POST["details"];
         $product_id = $_POST["product_id"];
         $rating = $_POST["rating"];
-
-	$servername = "50.62.209.185";
-	$user = "marianne";
-	$pass = "password123";
-	$dbname = "mariannepaulson_";
+       	$servername = $_POST["servername"];
+	    $username = $_POST["username"];
+	    $password = $_POST["password"];
+	    $dbname = $_POST["dbname"];
 	
 	// Create connection
-	$conn = new mysqli($servername, $user, $pass, $dbname);
+	$conn = new mysqli($servername, $username, $password, $dbname);
 	
 	// Check connection
 	if ($conn->connect_error) {

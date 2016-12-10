@@ -1,5 +1,6 @@
 <?php	
-
+	
+		setcookie($_GET["id"], "product_id", time()+60000, "/");
 		$id = $_GET["id"];
 		//$id = 2;
 		if($id>0 and $id<=1000){
@@ -40,10 +41,10 @@
 
 		}
 
-		if($id>1000 and $id<=2000){
+		elseif($id>1000 and $id<=2000){
 			include "connection_yaniv.php";
 
-			$company = "Yaniv Company";
+			$company = "Isaacagam Housing";
 
 			$conn = yanivConnection();
 	
@@ -78,7 +79,7 @@
 
 		}
 
-		if($id>2000 and $id<=3000){
+		elseif($id>2000 and $id<=3000){
 			include "connection_marianne.php";
 
 			$company = "Mom Consultancy";
@@ -115,7 +116,7 @@
 
 
 
-		if($id>3000 and $id<=4000){
+		elseif($id>3000 and $id<=4000){
 			include "connection_ravi.php";
 
 			$company = "Nilkanthvarni Industries ";
@@ -151,7 +152,7 @@
 
 
 
-		if($id>4000 and $id<=5000){
+		elseif($id>4000 and $id<=5000){
 			include "connection_venkatesh.php";
 
 			$company = "Trek The Himalayas";
@@ -186,6 +187,8 @@
 			}
 		}
 
+
+
 	
 
 ?>
@@ -194,6 +197,9 @@
 <html>
 <head>
 	<title><?php echo $productname?></title>
+	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
+	<link rel="stylesheet" href="css/fontawesome-stars.css">
+	<link rel="stylesheet" type="text/css" href="css/stars.css">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.5/css/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="css/product_style.css">
 </head>
@@ -207,7 +213,6 @@
 		  	</a>		  	
 		    <a class="nav-item nav-link active ml-2" href="index.php">Home <span class="sr-only">(current)</span></a>
 		    <a class="nav-item nav-link" href="all_products.php">All Products</a>
-		    <a class="nav-item nav-link" href="#top">Top Rated</a>
 <!--MP-->   <a class="nav-item nav-link" href="all_reviews.php">Best Reviewed Products</a>   
 <!--MP-->   <a class="nav-item nav-link" href="all_visits.php">Most Visited Products</a>  
 		    <a class="nav-item nav-link" href="#">About</a>
@@ -225,7 +230,6 @@
 			<img class="col-sm-7" src="<?php echo $image_url?>">		
 			<h2 class="col-sm-5 display-5 text-sm-left text-xs-center"><?php echo $productname?><p class="lead company-name">by  <?php echo $company?></p></h2>
 			<p class="col-xs-4 mt-1 price">$<?php echo $price?></p>
-			
 
 			<button type="button" class="btn bg-inverse text-white col-xs-3 add-to-cart ml-1" onclick="window.location.href='extrapage.php?action=add&selectedid=<?php echo urldecode($product_id)?>'">Add To Cart</button>
 			
@@ -238,6 +242,21 @@
 
 	<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.5/js/bootstrap.min.js"></script>	
+	<script src="js/jquery.barrating.min.js"></script>
+
+	<script type="text/javascript">
+	   $(function() {
+	   	
+
+	      $('#example').barrating({
+	        theme: 'fontawesome-stars'
+	      });
+
+	      $('#example').barrating('set', 3);
+
+	   });
+
+	</script>
 
 	<?php include ("socialMedia.php")?>
 </body>

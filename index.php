@@ -16,6 +16,13 @@
 </head>
 <?php
 
+    $recent = array();
+	foreach ($_COOKIE as $key => $value) {
+		if($value == "product_id"){
+			array_push($recent, $key);
+		}    
+	}
+
 	if(isset($_POST['submit'])) {
 
 
@@ -37,12 +44,18 @@
 		
 		if ($result->num_rows > 0) {
 		    // output data of each row	
-
+            echo '<script>
+					$(document).ready(function(){
+						$(".signin-button").hide();
+                        $("#email-navbar").show();
+					});                   
+				</script>';
 		}
 		else{
 			echo '<script>
 					$(document).ready(function(){
 						$("#failureModal").modal("show");
+                        $("#email-navbar").hide();
 					});
 				</script>';
 		}
@@ -64,8 +77,9 @@
 <!--MP-->   <a class="nav-item nav-link" href="all_visits.php">Most Visited Products</a>   
 		    <a class="nav-item nav-link" href="#top">Top Rated</a>
 		    <a class="nav-item nav-link" href="#">About</a>
-		    <a class="nav-item nav-link float-lg-right" href="#" data-toggle="modal" data-target="#loginModal">Login</a>
-		    <a class="nav-item nav-link float-lg-right" href="#" data-toggle="modal" data-target="#signupModal">Sign Up</a>
+		    <a class="nav-item nav-link float-lg-right signin-button" href="#" data-toggle="modal" data-target="#loginModal">Login</a>
+		    <a class="nav-item nav-link float-lg-right signin-button" href="#" data-toggle="modal" data-target="#signupModal">Sign Up</a>
+            <a class="nav-item nav-link float-lg-right signin-button" href="#" data-toggle="modal" id = "email-navbar" data-target="#signupModal"><?php echo $email;?></a>
 		  </div>
 		</nav>
 
@@ -260,89 +274,217 @@
 	</div>
 	<!-- End of Carousel -->
 
-	<!-- Top Rated products -->
+		<!-- Recently Visited products -->
 	<div class="container mt-2" id="top">
-		<div class="container display-4 text-xs-center mb-2"> Our Top Rated Products</div>
-		<div class="row top-rated-row mb-2">
-			<div class="card col-md-5 px-0">
-			  <div class="card-block">
-			    <h5 class="card-title top-rated-title text-xs-center">Computer Engineering Course</h5>
-			    <h6 class="card-subtitle text-muted text-xs-center">San Jose Downtown University</h6>
-			  </div>
-			  <img src="http://3.bp.blogspot.com/-UVx24A5E8iI/Vo_jHnZZjMI/AAAAAAAAAGs/aLTAIL5PAq4/s640/Computer%2BProgramming%2BCourses%2BCan%2BBe%2BYour%2BTicket%2BTo%2BThe%2BGood%2BLife.jpg" alt="Card image" class="img-fluid" >
-			  <div class="card-block row container-fluid">			    
-			  	<h6 class="card-subtitle text-muted text-xs-center mb-1 mt-1">$600</h6>			    
-	        	<button type="button" class="btn bg-inverse text-white offset-xs-1 col-xs-10">Buy</button>
-			  </div>
-			</div>
+		<div class="container display-4 text-xs-center mb-3"> Recently Visited Products</div>
 
-			<div class="card offset-sm-2 col-md-5 px-0">
-			  <div class="card-block">
-			    <h5 class="card-title top-rated-title text-xs-center">Watch</h4>
-			    <h6 class="card-subtitle text-muted text-xs-center">Mom Consulting</h6>
-			  </div>
-			  <img src="http://economydecoded.com/wp-content/uploads/2016/10/nike-watch-640x360.jpg" alt="Card image" class="img-fluid" >
-			  <div class="card-block row container-fluid">			    
-			  	<h6 class="card-subtitle text-muted text-xs-center mb-1 mt-1">$370</h6>			    
-	        	<button type="button" class="btn bg-inverse text-white offset-xs-1 col-xs-10">Buy</button>
-			  </div>
-			</div>
-		</div>
+		<?php
 
-		<div class="row top-rated-row mb-2">
-			<div class="card col-md-5 px-0">
-			  <div class="card-block">
-			    <h5 class="card-title top-rated-title text-xs-center">3 BHK flat - San Jose</h5>
-			    <h6 class="card-subtitle text-muted text-xs-center">Isaacagam</h6>
-			  </div>
-			  <img src="https://www.photomast.com/wp-content/uploads/2016/03/Realestate3-640x360.jpg" alt="Card image" class="img-fluid" >
-			  <div class="card-block row container-fluid">			    
-			  	<h6 class="card-subtitle text-muted text-xs-center mb-1 mt-1">$800,000</h6>
-	        	<button type="button" class="btn bg-inverse text-white offset-xs-1 col-xs-10">Buy</button>
-			  </div>
-			</div>
+			$recent = array_reverse($recent);
 
-			<div class="card offset-sm-2 col-md-5 px-0">
-			  <div class="card-block">
-			    <h5 class="card-title top-rated-title text-xs-center">Head Lamp</h4>
-			    <h6 class="card-subtitle text-muted text-xs-center">Mom Consulting</h6>
-			  </div>
-			  <img src="https://www.copquest.com/product-images/fenix-hl55-led-headlamp-900-lumens_18-8255_a.jpg" alt="Card image" class="img-fluid" >
-			  <div class="card-block row container-fluid">			    
-			  	<h6 class="card-subtitle text-muted text-xs-center mb-1 mt-1">$89</h6>			    
-	        	<button type="button" class="btn bg-inverse text-white offset-xs-1 col-xs-10">Buy</button>
-			  </div>
-			</div>
-		</div>
+			foreach ($recent as $id) {
+				
 
-		<div class="row top-rated-row mb-2">
-			<div class="card col-md-5 px-0">
-			  <div class="card-block">
-			    <h5 class="card-title top-rated-title text-xs-center">Automobile Engineering</h5>
-			    <h6 class="card-subtitle text-muted text-xs-center">San Jose Downtown University</h6>
-			  </div>
-			  <img src="https://cdn.materia.nl/wp-content/uploads/2016/04/toyota-s-wood-car-captures-the-beauty-of-materials-over-time-05-640x360.jpg" alt="Card image" class="img-fluid" >
-			  <div class="card-block row container-fluid">			    
-			  	<h6 class="card-subtitle text-muted text-xs-center mb-1 mt-1">$1100</h6>
-	        	<button type="button" class="btn bg-inverse text-white offset-xs-1 col-xs-10">Buy</button>
-			  </div>
-			</div>
+				if($id>0 and $id<=1000){
+					include "connection_shaurya.php";
 
-			<div class="card offset-sm-2 col-md-5 px-0">
-			  <div class="card-block">
-			    <h5 class="card-title top-rated-title text-xs-center">4 BHK - Sunnyvale</h4>
-			    <h6 class="card-subtitle text-muted text-xs-center">Isaacagam</h6>
-			  </div>
-			  <img src="http://biggolftutorials.com/wp-content/uploads/2016/07/maxresdefault32-640x360.jpg" alt="Card image" class="img-fluid" >
-			  <div class="card-block row container-fluid">			    
-			  	<h6 class="card-subtitle text-muted text-xs-center mb-1 mt-1">$950,000</h6>			    
-	        	<button type="button" class="btn bg-inverse text-white offset-xs-1 col-xs-10">Buy</button>
-			  </div>
-			</div>
-		</div>
+					$company = "San Jose Downtown University";
+
+					$conn = shauryaConnection();
+			
+					// Check connection
+					if ($conn->connect_error) {
+						echo("error");
+					    die("Connection failed: " . $conn->connect_error);
+					}	
+					$sql = "SELECT * FROM products WHERE product_id = $id";
+					$result = $conn->query($sql);
+
+
+					if ($result->num_rows > 0) {
+
+						if ($result->num_rows > 0) {
+
+						while($row = $result->fetch_assoc()) {	   
+
+								$productname = $row["product_name"];
+							    $price = $row["price"];
+							    $image_url = $row["image"];
+							    $rating = $row["rating"];
+							    $review = $row["review"];
+							    $description = $row["description"];
+							    $product_url = $row["product_url"];
+
+							}
+
+						}
+
+					}
+
+				}
+
+				elseif($id>1000 and $id<=2000){
+					include "connection_yaniv.php";
+
+					$company = "Yaniv Company";
+
+					$conn = yanivConnection();
+			
+					// Check connection
+					if ($conn->connect_error) {
+						echo("error");
+					    die("Connection failed: " . $conn->connect_error);
+					}	
+					$sql = "SELECT * FROM products WHERE product_id = $id";
+					$result = $conn->query($sql);
+
+
+					if ($result->num_rows > 0) {
+
+						if ($result->num_rows > 0) {
+
+						while($row = $result->fetch_assoc()) {	   
+
+								$productname = $row["product_name"];
+							    $price = $row["price"];
+							    $image_url = $row["image"];
+							    $rating = $row["rating"];
+							    $review = $row["review"];
+							    $description = $row["description"];
+							    $product_url = $row["product_url"];
+
+							}
+
+						}
+
+					}
+
+				}
+
+				elseif($id>2000 and $id<=3000){
+					include "connection_marianne.php";
+
+					$company = "Mom Consultancy";
+
+					$conn = marianneConnection();
+			
+					// Check connection
+					if ($conn->connect_error) {
+						echo("error");
+					    die("Connection failed: " . $conn->connect_error);
+					}	
+					$sql = "SELECT * FROM products WHERE product_id = $id";
+					$result = $conn->query($sql);
+
+
+					if ($result->num_rows > 0) {
+
+						if ($result->num_rows > 0) {
+
+						while($row = $result->fetch_assoc()) {	   
+
+								$productname = $row["product_name"];
+							    $price = $row["price"];
+							    $image_url = $row["image"];
+							    $rating = $row["rating"];
+							    $review = $row["review"];
+							    $description = $row["description"];
+							    $product_url = $row["product_url"];
+
+							}
+						}
+					}
+				}
+
+
+
+				elseif($id>3000 and $id<=4000){
+					include "connection_ravi.php";
+
+					$company = "Nilkanthvarni Industries ";
+
+					$conn = raviConnection();
+			
+					// Check connection
+					if ($conn->connect_error) {
+						echo("error");
+					    die("Connection failed: " . $conn->connect_error);
+					}	
+					$sql = "SELECT * FROM products WHERE product_id = $id";
+					$result = $conn->query($sql);
+
+
+					if ($result->num_rows > 0) {
+
+						if ($result->num_rows > 0) {
+
+						while($row = $result->fetch_assoc()) {	   
+
+								$productname = $row["product_name"];
+							    $price = $row["price"];
+							    $image_url = $row["image"];
+							    $rating = $row["rating"];
+							    $review = $row["review"];
+							    $description = $row["description"];
+							    $product_url = $row["product_url"];
+							}
+						}
+					}
+				}
+
+
+
+				elseif($id>4000 and $id<=5000){
+					include "connection_venkatesh.php";
+
+					$company = "Trek The Himalayas";
+
+					$conn = venkateshConnection();
+			
+					// Check connection
+					if ($conn->connect_error) {
+						echo("error");
+					    die("Connection failed: " . $conn->connect_error);
+					}	
+					$sql = "SELECT * FROM products WHERE product_id = $id";
+					$result = $conn->query($sql);
+
+
+					if ($result->num_rows > 0) {
+
+						if ($result->num_rows > 0) {
+
+						while($row = $result->fetch_assoc()) {	   
+
+								$productname = $row["product_name"];
+							    $price = $row["price"];
+							    $image_url = $row["image"];
+							    $rating = $row["rating"];
+							    $review = $row["review"];
+							    $description = $row["description"];
+							    $product_url = $row["product_url"];
+
+							}
+						}
+					}
+				}?>
+				<div class="card col-lg-3 col-sm-5 px-0 product-card">
+					<div class="card-block">
+						<h5 class="card-title product-title text-xs-center"><?php echo $productname?></h4>
+					</div>
+					<img src="<?php echo $image_url?>" alt="Card image" class="img-fluid" >
+					<div class="card-block row container-fluid">			    
+						<h6 class="card-subtitle text-muted text-xs-center mb-1 mt-1">$<?php echo $price?></h6>			    
+						<button type="button" class="btn bg-inverse text-white offset-xs-1 col-xs-10" onclick="window.location.href='product.php?id=<?php echo urldecode($id)?>'">Buy</button>
+					</div>
+				</div>
+
+				<?php
+			}
+
+	?>
 
 	</div>
-	<!-- Top Rated Section ends here -->
 
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.5/js/bootstrap.min.js"></script>	
 </body>

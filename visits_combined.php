@@ -83,6 +83,25 @@
             $result[] = $product;
         }
     }
+     // Get Ravi's visits	
+    $servername = "107.180.51.22";
+		$username = "nilkanth_admin";
+		$password = "root1";
+		$dbname = "nilkanth_ravi";
+
+        $conn = new mysqli($servername, $username, $password, $dbname);
+	
+	if ($conn->connect_error) {
+	    die("Connection failed: " . $conn->connect_error);
+	}				
+	
+    $visits_site = $conn->query($sql);
+    if ($visits_site->num_rows > 0) {
+        while($product = $visits_site->fetch_array())
+        {
+            $result[] = $product;
+        }
+    }
 
     // create key array
     foreach ($result as $key => $row) {

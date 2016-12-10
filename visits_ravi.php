@@ -1,8 +1,8 @@
 <?php
-    $servername = "50.62.209.185:3306";
-    $username = "sha1";
-    $password = "sh@urya1";
-    $dbname = "mariannepaulson_";
+		$servername = "107.180.51.22";
+		$username = "nilkanth_admin";
+		$password = "root1";
+		$dbname = "nilkanth_ravi";
 
     //$servername = "198.91.81.5:3306";
     //$username = "nilkanth_admin";

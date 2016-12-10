@@ -1,5 +1,5 @@
 <?php
-// Start the session
+// Start the session in all the pages
 session_start();
 error_reporting(0);
 ?>

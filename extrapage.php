@@ -12,8 +12,8 @@ error_reporting(0);
 				{ 
 		              
 		            //$_SESSION['cart'][$id]['quantity']++; 
-		            echo $_SESSION['cart'][$id]['quantity']++; 
-		            echo "hello";
+		             $_SESSION['cart'][$id]['quantity']++; 
+		             
 		              
 		        }
 		        else
@@ -43,7 +43,7 @@ error_reporting(0);
 		                //echo $_SESSION['name'];
 		                  
 		                $_SESSION['cart'][$row_s['product_id']]=array("quantity" => 1, "price" => $row_s['price']  ); 
-		                echo $_SESSION['cart'][$id]['price'];
+		                
 
 		                 
 		                  
@@ -90,8 +90,25 @@ error_reporting(0);
 		</nav>
 
 	</header>
+	 <div class="container mt-3">
+		<div class="row">
+			<img class="col-sm-7" src="<?php echo $row["image"]?>">		
+			<h2 class="col-sm-5 display-5 text-sm-left text-xs-center"><?php echo $row["product_name"]?>
+			
+			
 
-	<p>The product has been added </p>
+			
+		</div>
+		
+	   </div>
+
+                   
+	<br>
+	<br>
+	<br>
+	<br>
+
+	<center><p>The product has been added </p></center>
 	
 	<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.5/js/bootstrap.min.js"></script>	

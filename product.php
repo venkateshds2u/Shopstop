@@ -32,6 +32,7 @@
 					    $review = $row["review"];
 					    $description = $row["description"];
 					    $product_url = $row["product_url"];
+					    $product_id = $row["product_id"];
 
 					}
 
@@ -70,6 +71,7 @@
 					    $review = $row["review"];
 					    $description = $row["description"];
 					    $product_url = $row["product_url"];
+					    $product_id = $row["product_id"];
 
 					}
 
@@ -108,6 +110,7 @@
 					    $review = $row["review"];
 					    $description = $row["description"];
 					    $product_url = $row["product_url"];
+					    $product_id = $row["product_id"];
 
 					}
 				}
@@ -145,6 +148,7 @@
 					    $review = $row["review"];
 					    $description = $row["description"];
 					    $product_url = $row["product_url"];
+					    $product_id = $row["product_id"];
 					}
 				}
 			}
@@ -181,6 +185,7 @@
 					    $review = $row["review"];
 					    $description = $row["description"];
 					    $product_url = $row["product_url"];
+					    $product_id = $row["product_id"];
 
 					}
 				}

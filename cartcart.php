@@ -36,8 +36,8 @@ error_reporting(0);
 ?> 
   
 <h1>View cart</h1> 
-<a href="index.php?page=products">Go back to the products page.</a> 
-<form method="post" action="cart_products-display.php"> 
+
+<form method="post" action="cartproducts_display.php"> 
       
     <div class="container">
     <div class = "row">

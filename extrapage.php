@@ -20,11 +20,11 @@ error_reporting(0);
 				{ 
 					//echo $id;
 					//echo "in else loop";
-					include "connection_shaurya.php";
+					include "connection_venkatesh.php";
 
 					$company = "San Jose Downtown University";
 
-					$conn = shauryaConnection();
+					$conn = venkateshConnection();
 	
 					// Check connection
 					if ($conn->connect_error) {
@@ -32,7 +32,7 @@ error_reporting(0);
 			 		   die("Connection failed: " . $conn->connect_error);
 					}	
 		              
-		            $sql_s="SELECT * FROM products WHERE product_id={$id}"; 
+		            $sql_s="SELECT * FROM cartproducts WHERE product_id={$id}"; 
 		                
 		           $result=$conn->query($sql_s); 
 		            if($result->num_rows > 0)

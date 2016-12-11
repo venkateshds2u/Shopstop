@@ -4,8 +4,8 @@
 	function venkateshConnection(){
 
 		$servername = "107.180.46.187:3306";
-		$username = "shauryamittal";
-		$password = "shauryamittal";
+		$username = "venkatesh123";
+		$password = "venkatesh123";
 		$dbname = "websiteuser123";
 		
 		// Create connection

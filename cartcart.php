@@ -4,11 +4,11 @@ session_start();
 error_reporting(0);
 
 
-            include "connection_shaurya.php";
+            include "connection_venkatesh.php";
 
             $company = "San Jose Downtown University";
 
-            $conn = shauryaConnection();
+            $conn = venkateshConnection();
     
             // Check connection
             if ($conn->connect_error) {
@@ -35,9 +35,9 @@ error_reporting(0);
   
 ?> 
   
-<h1>View cart</h1> 
 
-<form method="post" action="cartproducts_display.php"> 
+
+<form method="post" action="orderproducts_display.php"> 
       
     <div class="container">
     <div class = "row">
@@ -66,7 +66,7 @@ error_reporting(0);
 
         //echo $_SESSION['cart']['4001']['quantity']*$row['price']; 
           
-            $sql="SELECT * FROM products WHERE product_id IN ("; 
+            $sql="SELECT * FROM cartproducts WHERE product_id IN ("; 
                       
                     foreach($_SESSION['cart'] as $id => $value)
                     { 

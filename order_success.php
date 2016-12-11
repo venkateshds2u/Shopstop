@@ -43,7 +43,7 @@ error_reporting(0);
 		</nav>
 	</header>
 
-	<h1> The order is successfull </h1>
+	<center> The order is successfull </center>
 	
 	<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.5/js/bootstrap.min.js"></script>	
